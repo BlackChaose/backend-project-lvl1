@@ -1,6 +1,6 @@
 # Brain-games #
 
-* project for get skill in using npm, babel etc. *
+***project for get skill in using npm, babel etc.***
 
 ---
 
