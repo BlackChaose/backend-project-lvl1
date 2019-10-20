@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-import myFunc from '..';
+import whatsName from '..';
 
 console.log('Welcome to the Brain Games!');
-myFunc();
+whatsName();
