@@ -1,6 +1,5 @@
 #!/usr/bin/env node
-import {whatsName, question } from '..';
-
+import { whatsName, question } from '..';
 
 console.log('Welcome to the Brain Games!');
 console.log('Answer "yes" if the number is even, otherwise answer "no".');
@@ -13,29 +12,28 @@ let count = 0;
 
 let ans = question(num());
 
-const logic = (n, a) =>{ if (n % 2 === 0) {
-  if (a === 'yes') {
-    count += 1;
-    console.log('Correct!');
-    return 0;
-  } else {
-    count = 0;
-    console.log('"yes" is wrong answer ;(. Correct answer was "no".');
-    console.log(`let\'s try again, ${userName}!`);
-    process.exit(-1);
+const logic = (n, a) => {
+  if (n % 2 === 0) {
+    if (a === 'yes') {
+      count += 1;
+      console.log('Correct!');
+    } else {
+      count = 0;
+      console.log('"yes" is wrong answer ;(. Correct answer was "no".');
+      console.log(`let's try again, ${userName}!`);
+      process.exit(-1);
+    }
+  } else if (n % 2 !== 0) {
+    if (a === 'no') {
+      count += 1;
+      console.log('Correct!');
+    } else {
+      count = 0;
+      console.log('"yes" is wrong answer ;(. Correct answer was "no".');
+      console.log(`let's try again, ${userName}!`);
+      process.exit(-1);
+    }
   }
-} else if (n % 2 !== 0) {
-  if (a === 'no') {
-    count += 1;
-    console.log('Correct!');
-    return 0;
-  } else {
-    count = 0;
-    console.log('"yes" is wrong answer ;(. Correct answer was "no".');
-    console.log(`let\'s try again, ${userName}!`);
-    process.exit(-1);
-  }
-}
 };
 
 logic(num(), ans);
