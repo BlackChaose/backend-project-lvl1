@@ -12,7 +12,7 @@ const num = Math.floor(Math.random() * 100);
 let count = 0;
 
 let ans = question(num);
-//fixme!
+
 
 const logic = (n, a) =>{ if (n % 2 === 0) {
   if (a === 'yes') {
