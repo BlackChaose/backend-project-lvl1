@@ -1,7 +1,8 @@
 #!/usr/bin/env node
 import { whatsName, question } from '..';
+import {hiFunc} from './brain-games.js';
 
-console.log('Welcome to the Brain Games!');
+hiFunc();
 console.log('Answer "yes" if the number is even, otherwise answer "no".');
 
 const userName = whatsName();
