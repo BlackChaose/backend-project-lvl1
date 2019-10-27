@@ -1,13 +1,9 @@
 #!/usr/bin/env node
-import { hiFunc } from './brain-games';
-import { whatsName, question } from '..';
+import { whatsName, question, hiFunc } from '..';
 
+hiFunc('Answer "yes" if the number is even, otherwise answer "no".');
 
-hiFunc();
-console.log('Answer "yes" if the number is even, otherwise answer "no".');
-
-//const userName = whatsName(); //fixme
-
+const userName = whatsName();
 
 const num = () => Math.floor(Math.random() * 100);
 
