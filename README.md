@@ -2,11 +2,16 @@
 
 ***project for get skill in using npm, babel etc.***
 
-asciinema record #1: [![asciicast](https://asciinema.org/a/waFY7XJgLhc5kx3VRKolZmfwn.svg)](https://asciinema.org/a/waFY7XJgLhc5kx3VRKolZmfwn)
+
+### asciinema record #1: ###
+
+[![asciicast](https://asciinema.org/a/waFY7XJgLhc5kx3VRKolZmfwn.svg)](https://asciinema.org/a/waFY7XJgLhc5kx3VRKolZmfwn)
 
 ---
 
-asciinema record #2: [![asciicast](https://asciinema.org/a/BlxcMF0I8lNwQKZFxvJDk243r.svg)](https://asciinema.org/a/BlxcMF0I8lNwQKZFxvJDk243r)
+### asciinema record #2: ###
+
+[![asciicast](https://asciinema.org/a/BlxcMF0I8lNwQKZFxvJDk243r.svg)](https://asciinema.org/a/BlxcMF0I8lNwQKZFxvJDk243r)
 
 ---
 
