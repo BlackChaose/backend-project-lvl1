@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-import { whatsName, question, hiFunc } from '..';
+import { whatsName, question, hiFunc } from '../index';
 
 hiFunc('What is the result of the expression?');
 
@@ -32,7 +32,7 @@ const randOp = () => {
 
 const logic = (numQ, numAns) => {
   let result = false;
-  console.log(typeof(numQ), typeof (numAns));
+
   if (numQ === numAns) {
     console.log('Correct!');
     result = true;

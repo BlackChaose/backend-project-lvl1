@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-import { whatsName, question, hiFunc } from '..';
+import { whatsName, question, hiFunc } from '../index';
 
 hiFunc('Answer "yes" if the number is even, otherwise answer "no".');
 
