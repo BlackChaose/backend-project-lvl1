@@ -5,12 +5,12 @@ hiFunc('Find the greatest common divisor of given numbers.');
 
 const userName = whatsName();
 
-const num1 = () => Math.floor(Math.random() * 100);
-const num2 = () => Math.floor(Math.random() * 100);
-
-let count = 0;
-let numer1 = 0;
-let numer2 = 0;
+// const num1 = () => Math.floor(Math.random() * 100);
+// const num2 = () => Math.floor(Math.random() * 100);
+//
+// let count = 0;
+// let numer1 = 0;
+// let numer2 = 0;
 
 //https://uztest.ru/abstracts/?idabstract=1
 
