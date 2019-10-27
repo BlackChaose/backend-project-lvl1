@@ -19,4 +19,11 @@
 
 ---
 
+### asciinema record #3: ###
+
+[![asciicast](https://asciinema.org/a/qNFfef1e2PKyUPeCxRSLj0z2Y.svg)](https://asciinema.org/a/qNFfef1e2PKyUPeCxRSLj0z2Y)
+
+---
+
+
 
