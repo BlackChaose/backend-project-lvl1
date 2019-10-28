@@ -31,5 +31,12 @@
 
 ---
 
+### asciinema record #5: ###
+
+[![asciicast](https://asciinema.org/a/sBOeevf66y36nuSTVh76jqCIv.svg)](https://asciinema.org/a/sBOeevf66y36nuSTVh76jqCIv)
+
+---
+
+
 
 
