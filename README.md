@@ -25,5 +25,11 @@
 
 ---
 
+### ascinema record #4: ###
+
+[![asciicast](https://asciinema.org/a/wOp8FOvikixfl5NOZlavN3d8I.svg)](https://asciinema.org/a/wOp8FOvikixfl5NOZlavN3d8I)
+
+---
+
 
 

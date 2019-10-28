@@ -20,10 +20,12 @@ const genProg = (a1, d) => {
   while (count <10){
     prog.push(a1+d*(count - 1));
     if(count === indexX){
-      str +='..';
+      str +='.. ';
     }else{
-      str += (a1+d(count - 1)).toString();
+      str += (a1+d*(count - 1)).toString();
+      str += ' ';
     }
+    count +=1;
   }
   return [prog[indexX], str ];
 };
@@ -41,7 +43,7 @@ const logic = (numQ, numAns) => {
   }
   return result;
 };
-
+let [valX,valS] = [0, 0];
 while (count >= 0) {
   if (count === 3) {
     console.log(`Congratulations, ${userName}!`);
