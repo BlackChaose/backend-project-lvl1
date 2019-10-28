@@ -13,21 +13,20 @@ let numer1 = 0;
 let numer2 = 0;
 
 const genProg = (a1, d) => {
-  let prog = [];
-  let count = 0;
   let str = '';
-  let indexX = Math.floor(Math.random() * 10);
-  while (count <10){
-    prog.push(a1+d*(count - 1));
-    if(count === indexX){
-      str +='.. ';
-    }else{
-      str += (a1+d*(count - 1)).toString();
+  const prog = [];
+  const indexX = Math.floor(Math.random() * 10);
+  while (count < 10) {
+    prog.push(a1 + d * (count - 1));
+    if (count === indexX) {
+      str += '.. ';
+    } else {
+      str += (a1 + d * (count - 1)).toString();
       str += ' ';
     }
-    count +=1;
+    count += 1;
   }
-  return [prog[indexX], str ];
+  return [prog[indexX], str];
 };
 
 const logic = (numQ, numAns) => {
@@ -43,7 +42,7 @@ const logic = (numQ, numAns) => {
   }
   return result;
 };
-let [valX,valS] = [0, 0];
+let [valX, valS] = [0, 0];
 while (count >= 0) {
   if (count === 3) {
     console.log(`Congratulations, ${userName}!`);
