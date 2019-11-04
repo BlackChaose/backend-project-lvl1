@@ -1,21 +1,19 @@
 #!/usr/bin/env node
-import { whatsName, question, hiFunc } from '../index';
+import run from '../engine';
 
-hiFunc('Find the greatest common divisor of given numbers.');
+const theme = 'Find the greatest common divisor of given numbers.';
+const dataSet = [];
 
-const userName = whatsName();
+for (let i = 0; i < 3; i += 1) {
+  dataSet[i] = [Math.floor(Math.random() * 100), Math.floor(Math.random() * 100)];
+}
 
-const num1 = () => Math.floor(Math.random() * 100);
-const num2 = () => Math.floor(Math.random() * 100);
+console.log(dataSet);
 
-let count = 0;
-let numer1 = 0;
-let numer2 = 0;
-
-
-const findNOD = (a, b) => {
-  let a1 = a;
-  let b1 = b;
+const findNOD = (pair) => {
+  let a1 = pair.pop();
+  let b1 = pair.pop();
+  console.log('in FindNOD:  ', a1, '   ', b1);
   while (a1 !== b1) {
     if (a1 > b1) {
       a1 -= b1;
@@ -26,30 +24,4 @@ const findNOD = (a, b) => {
   return a1;
 };
 
-const logic = (numQ, numAns) => {
-  let result = false;
-
-  if (numQ === numAns) {
-    console.log('Correct!');
-    result = true;
-  } else {
-    console.log(`'${numAns}' is wrong answer ;(. Correct answer was '${numQ}'`);
-    console.log(`Let's try again, ${userName}!`);
-    result = false;
-  }
-  return result;
-};
-
-while (count >= 0) {
-  if (count === 3) {
-    console.log(`Congratulations, ${userName}!`);
-    process.exit(-1);
-  }
-  numer1 = num1();
-  numer2 = num2();
-
-  if (!logic(findNOD(numer1, numer2), Number(question(`${numer1} ${numer2}`)))) {
-    process.exit(-1);
-  }
-  count += 1;
-}
+run(theme, dataSet, findNOD);
