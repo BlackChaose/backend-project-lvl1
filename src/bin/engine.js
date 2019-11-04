@@ -11,7 +11,7 @@ const run = (...params) => {
   const logic = (numQ, numAns) => {
     let result = false;
 
-    if (Number(numQ) === Number(numAns)) {
+    if (numQ === numAns) {
       console.log('Correct!');
       result = true;
     } else {

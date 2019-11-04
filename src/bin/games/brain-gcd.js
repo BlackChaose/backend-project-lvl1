@@ -21,7 +21,7 @@ const findNOD = (pair) => {
       b1 -= a1;
     }
   }
-  return a1;
+  return a1.toString();
 };
 
 run(theme, dataSet, findNOD);
