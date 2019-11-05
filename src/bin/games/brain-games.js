@@ -1,5 +1,4 @@
 #!/usr/bin/env node
-import { whatsName, hiFunc } from '../index';
+import run from '../engine';
 
-hiFunc();
-whatsName();
+run();
