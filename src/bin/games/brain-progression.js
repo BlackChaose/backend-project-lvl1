@@ -11,33 +11,31 @@ for (let i = 0; i < 3; i += 1) {
     Math.floor(Math.random() * 10)];
 }
 
-console.log(dataSet);
 
 const genProgr = (param) => {
-  const a1 = param.shift();
-  const d = param.shift();
+  const a1 = param[0];
+  const d = param[1];
   const prog = [];
   let i = 0;
   while (i < 10) {
     prog.push(a1 + d * (i - 1));
     i += 1;
   }
-  console.warn(prog);
   return prog;
 };
 
 const getProgrIndexX = (param) => {
-  const a1 = param.shift();
-  const d = param.shift();
-  const indexX = param.shift();
+  const a1 = param[0];
+  const d = param[1];
+  const indexX = param[2];
   const prog = genProgr([a1, d, indexX]);
-  return prog[indexX];
-}
+  return prog[indexX].toString();
+};
 
 const genQuestion = (param) => {
-  const a1 = param.shift();
-  const d = param.shift();
-  const indexX = param.shift();
+  const a1 = param[0];
+  const d = param[1];
+  const indexX = param[2];
   return genProgr([a1, d]).reduce((acc, el, i) => {
     if (i === indexX) {
       acc += '..';
@@ -48,7 +46,6 @@ const genQuestion = (param) => {
     return acc;
   }, '');
 };
-//fixme!
-const questionsSet = dataSet.map((el) => genQuestion(el));
 
+const questionsSet = dataSet.map((el) => genQuestion(el));
 run(theme, dataSet, questionsSet, getProgrIndexX);

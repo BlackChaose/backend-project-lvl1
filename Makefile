@@ -7,3 +7,6 @@ publish:
 	npm publish --dry-run
 lint:
 	npx eslint .
+tst:
+	make publish
+	sudo npm link
