@@ -24,4 +24,4 @@ const findNOD = (pair) => {
   return a1.toString();
 };
 
-run(theme, dataSet, findNOD);
+run(theme, dataSet, dataSet, findNOD);

@@ -19,4 +19,4 @@ const checkPrime = (n) => {
   return 'yes';
 };
 
-run(theme, dataSet, checkPrime);
+run(theme, dataSet, dataSet, checkPrime);

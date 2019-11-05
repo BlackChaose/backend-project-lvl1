@@ -19,4 +19,4 @@ const checkEven = (n) => {
   }
 };
 
-run(theme, dataSet, checkEven);
+run(theme, dataSet, dataSet, checkEven);
