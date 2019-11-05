@@ -14,5 +14,4 @@ for (let i = 0; i < 3; i += 1) {
 run(theme,
   dataSet,
   dataSet.map((param) => `${param[0]} ${param[2]} ${param[1]}`),
-  getResOfCalc
-);
+  getResOfCalc);
