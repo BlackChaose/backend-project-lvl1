@@ -37,13 +37,14 @@ const genQuestion = (param) => {
   const d = param[1];
   const indexX = param[2];
   return genProgr([a1, d]).reduce((acc, el, i) => {
+    let res = acc;
     if (i === indexX) {
-      acc += '..';
+      res += '..';
     } else {
-      acc += el;
+      res += el;
     }
-    acc += ' ';
-    return acc;
+    res += ' ';
+    return res;
   }, '');
 };
 

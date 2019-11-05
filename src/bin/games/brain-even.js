@@ -14,9 +14,7 @@ const checkEven = (n) => {
   if (n % 2 === 0) {
     return 'yes';
   }
-  else {
-    return 'no';
-  }
+  return 'no';
 };
 
 run(theme, dataSet, dataSet, checkEven);
