@@ -1,6 +1,6 @@
 #!/usr/bin/env node
-import run from '../engine';
-import { randOp, getResOfCalc } from '../index';
+import run from '../../engine';
+import { randOp, getResOfCalc } from '../../index';
 
 const theme = 'What is the result of the expression?';
 const dataSet = [];

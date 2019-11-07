@@ -1,6 +1,6 @@
 #!/usr/bin/env node
-import run from '../engine';
-import { genQuestionProgression, getProgrIndexX } from '../index';
+import run from '../../engine';
+import { genQuestionProgression, getProgrIndexX } from '../../index';
 
 const theme = 'What number is missing in the progression?';
 const dataSet = [];

@@ -1,6 +1,6 @@
 #!/usr/bin/env node
-import run from '../engine';
-import { isPrime } from '../index';
+import run from '../../engine';
+import { isPrime } from '../../index';
 
 const theme = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 const dataSet = [];

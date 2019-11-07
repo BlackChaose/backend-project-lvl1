@@ -1,6 +1,6 @@
 #!/usr/bin/env node
-import run from '../engine';
-import { isEven } from '../index';
+import run from '../../engine';
+import { isEven } from '../../index';
 
 const theme = 'Answer "yes" if the number is even, otherwise answer "no".';
 const dataSet = [];

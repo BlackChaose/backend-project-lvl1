@@ -1,6 +1,6 @@
 #!/usr/bin/env node
-import run from '../engine';
-import { findNOD } from '../index';
+import run from '../../engine';
+import { findNOD } from '../../index';
 
 const theme = 'Find the greatest common divisor of given numbers.';
 const dataSet = [];
