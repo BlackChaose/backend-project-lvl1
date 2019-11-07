@@ -1,5 +1,5 @@
-import run from './engine';
-import { isPrime } from './lib';
+import run from '../engine';
+import { isPrime } from '../lib';
 
 export default () => {
   const theme = 'Answer "yes" if given number is prime. Otherwise answer "no".';

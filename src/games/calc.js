@@ -1,5 +1,5 @@
-import run from './engine';
-import { randOp, getResOfCalc } from './lib';
+import run from '../engine';
+import { randOp, getResOfCalc } from '../lib';
 
 export default () => {
   const theme = 'What is the result of the expression?';

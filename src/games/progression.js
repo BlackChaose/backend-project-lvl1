@@ -1,5 +1,5 @@
-import run from './engine';
-import { genQuestionProgression, getProgrIndexX } from './lib';
+import run from '../engine';
+import { genQuestionProgression, getProgrIndexX } from '../lib';
 
 export default () => {
   const theme = 'What number is missing in the progression?';

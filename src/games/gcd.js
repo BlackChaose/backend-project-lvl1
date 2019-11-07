@@ -1,5 +1,5 @@
-import run from './engine';
-import { findNOD } from './lib';
+import run from '../engine';
+import { findNOD } from '../lib';
 
 export default () => {
   const theme = 'Find the greatest common divisor of given numbers.';

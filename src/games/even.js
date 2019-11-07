@@ -1,5 +1,5 @@
-import run from './engine';
-import { isEven } from './lib';
+import run from '../engine';
+import { isEven } from '../lib';
 
 export default () => {
   const theme = 'Answer "yes" if the number is even, otherwise answer "no".';

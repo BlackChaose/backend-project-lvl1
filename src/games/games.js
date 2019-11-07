@@ -1,4 +1,4 @@
-import run from './engine';
+import run from '../engine';
 
 export default () => {
   run();

@@ -1,10 +1,10 @@
 import readlineSync from 'readline-sync';
-import brainGames from './modules/games';
-import brainCalc from './modules/calc';
-import brainEven from './modules/even';
-import brainPrime from './modules/prime';
-import brainProgression from './modules/progression';
-import brainGcd from './modules/gcd';
+import brainGames from './games/games';
+import brainCalc from './games/calc';
+import brainEven from './games/even';
+import brainPrime from './games/prime';
+import brainProgression from './games/progression';
+import brainGcd from './games/gcd';
 
 
 console.log('Please select number of games or type 0 for exit');
