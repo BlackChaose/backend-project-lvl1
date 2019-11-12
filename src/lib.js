@@ -4,8 +4,15 @@
  * @returns {function}
  */
 
-const randNum = (multiplier) => () => Math.floor(Math.random() * multiplier);
-
+// const randNum = (multiplier) => () => Math.floor(Math.random() * multiplier);
+const randNum = (a, b) => () => {
+  const arr = [];
+  for (let i = a; i <= b; i += 1) {
+    arr.push(i);
+  }
+  const koef = arr.length;
+  return arr[Math.floor(Math.random() * koef)];
+};
 /**
  * function for generation data set
  * @param sets - a set of functions by which data is generated
