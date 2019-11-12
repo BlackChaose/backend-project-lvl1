@@ -43,11 +43,11 @@ const genQuestionProgression = (param) => {
   return genProgr([a1, d]).reduce((acc, el, i) => {
     let res = acc;
     if (i === indexX) {
-      res += '..';
+      res = `${res} ..`;
     } else {
-      res += el;
+      res = `${res} ${el}`;
     }
-    res += ' ';
+    res = `${res} `;
     return res;
   }, '');
 };
