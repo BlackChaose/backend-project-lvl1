@@ -14,7 +14,7 @@ const isEven = (n) => (n % 2 === 0);
  */
 const generationDataset = () => {
   const NUM_OF_DATASETS = 3;
-  const numDataset = genData([randNum(100)], NUM_OF_DATASETS);
+  const numDataset = genData([randNum(0, 100)], NUM_OF_DATASETS);
   return {
     dataSet: numDataset,
     questionsSet: numDataset,

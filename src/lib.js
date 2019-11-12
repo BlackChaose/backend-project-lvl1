@@ -4,7 +4,12 @@
  * @returns {function}
  */
 
-// const randNum = (multiplier) => () => Math.floor(Math.random() * multiplier);
+/**
+ * generation random number
+ * @param a min random number
+ * @param b max random number
+ * @returns {function(): *}
+ */
 const randNum = (a, b) => () => {
   const arr = [];
   for (let i = a; i <= b; i += 1) {

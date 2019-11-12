@@ -25,7 +25,7 @@ const findNOD = (pair) => {
  */
 const generationDataset = () => {
   const NUM_OF_DATASETS = 3;
-  const numDataset = genData([randNum(100), randNum(100)], NUM_OF_DATASETS);
+  const numDataset = genData([randNum(0, 100), randNum(0, 100)], NUM_OF_DATASETS);
   return {
     dataSet: numDataset,
     questionsSet: numDataset.map((el) => `${el[0]} ${el[1]}`),

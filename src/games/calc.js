@@ -7,7 +7,7 @@ import { genData, randNum } from '../lib';
  * @returns {string}  '+', '-' or '*'
  */
 const randOp = () => {
-  const index = Math.floor(Math.random() * 10);
+  const index = randNum(0, 10)();
   const sign = ['+', '+', '+', '+', '-', '-', '-', '-', '*', '*', '*'];
   return sign[index];
 };
@@ -36,7 +36,7 @@ const getResOfCalc = (param) => {
  */
 const generationDataset = () => {
   const NUM_OF_DATASETS = 3;
-  const numDataset = genData([randNum(100), randNum(100), randOp], NUM_OF_DATASETS);
+  const numDataset = genData([randNum(0, 100), randNum(0, 100), randOp], NUM_OF_DATASETS);
   return {
     dataSet: numDataset,
     questionsSet: numDataset.map((param) => `${param[0]} ${param[2]} ${param[1]}`),
