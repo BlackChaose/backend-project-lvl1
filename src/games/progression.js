@@ -1,9 +1,6 @@
 import run from '../engine';
 import { genData, randNum } from '../lib';
 
-const theme = 'What number is missing in the progression?';
-const NUM_OF_ROUNDS = 3;
-
 /**
  * arithmetic progression generation
  * @param param {Array} [a1, d]
@@ -56,11 +53,22 @@ const genQuestionProgression = (param) => {
 };
 
 /**
+ * function for generations dataset;
+ * @returns {{dataSet: Array, questionsSet: string[], theme: string}}
+ */
+const generationDataset = () => {
+  const NUM_OF_DATASETS = 3;
+  const numDataset = genData([randNum(100), randNum(100), randNum(10)], NUM_OF_DATASETS);
+  return {
+    dataSet: numDataset,
+    questionsSet: numDataset.map((el) => genQuestionProgression(el)),
+    theme: 'What number is missing in the progression?',
+  };
+};
+
+/**
  * game
  */
 export default () => {
-  const dataSet = genData([randNum(100), randNum(100), randNum(10)], NUM_OF_ROUNDS);
-  const questionsSet = dataSet.map((el) => genQuestionProgression(el));
-
-  run(theme, dataSet, questionsSet, getProgrIndexX);
+  run(generationDataset(), getProgrIndexX);
 };

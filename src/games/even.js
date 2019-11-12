@@ -1,26 +1,30 @@
 import run from '../engine';
 import { genData, randNum } from '../lib';
 
-const theme = 'Answer "yes" if the number is even, otherwise answer "no".';
-const NUM_OF_ROUNDS = 3;
-
 /**
  * check n for even
  * @param n Number
- * @returns {string}
+ * @returns {boolean}
  */
-const isEven = (n) => {
-  if (n % 2 === 0) {
-    return 'yes';
-  }
-  return 'no';
+const isEven = (n) => (n % 2 === 0);
+
+/**
+ * function for generations dataset;
+ * @returns {{dataSet: Array, questionsSet: string[], theme: string}}
+ */
+const generationDataset = () => {
+  const NUM_OF_DATASETS = 3;
+  const numDataset = genData([randNum(100)], NUM_OF_DATASETS);
+  return {
+    dataSet: numDataset,
+    questionsSet: numDataset,
+    theme: 'Answer "yes" if the number is even, otherwise answer "no".',
+  };
 };
 
 /**
  * game
  */
 export default () => {
-  const dataSet = genData([randNum(100)], NUM_OF_ROUNDS);
-
-  run(theme, dataSet, dataSet, isEven);
+  run(generationDataset(), (x) => ((isEven(x) ? 'yes' : 'no')));
 };

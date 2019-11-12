@@ -1,9 +1,6 @@
 import run from '../engine';
 import { genData, randNum } from '../lib';
 
-const theme = 'Find the greatest common divisor of given numbers.';
-const NUM_OF_ROUNDS = 3;
-
 /**
  * Finding the Greatest Common Divisor
  * @param pair {Array} [a1, b1]
@@ -19,14 +16,26 @@ const findNOD = (pair) => {
       b1 -= a1;
     }
   }
-  return a1.toString();
+  return a1;
+};
+
+/**
+ * function for generations dataset;
+ * @returns {{dataSet: Array, questionsSet: string[], theme: string}}
+ */
+const generationDataset = () => {
+  const NUM_OF_DATASETS = 3;
+  const numDataset = genData([randNum(100), randNum(100)], NUM_OF_DATASETS);
+  return {
+    dataSet: numDataset,
+    questionsSet: numDataset.map((el) => `${el[0]} ${el[1]}`),
+    theme: 'Find the greatest common divisor of given numbers.',
+  };
 };
 
 /**
  * game
  */
 export default () => {
-  const dataSet = genData([randNum(100), randNum(100)], NUM_OF_ROUNDS);
-
-  run(theme, dataSet, dataSet.map((el) => `${el[0]} ${el[1]}`), findNOD);
+  run(generationDataset(), ((x) => findNOD(x).toString()));
 };

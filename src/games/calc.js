@@ -1,28 +1,15 @@
 import run from '../engine';
 import { genData, randNum } from '../lib';
 
-const theme = 'Answer "yes" if the number is even, otherwise answer "no".';
-const NUM_OF_ROUNDS = 3;
-
 /**
  * random generate 'sign'
  * @nothing  operation sign generation function
  * @returns {string}  '+', '-' or '*'
  */
 const randOp = () => {
-  const bf = Math.floor(Math.random() * 10);
-  let sign = '';
-  switch (bf) {
-    case 1: sign = '+'; break;
-    case 2: sign = '+'; break;
-    case 3: sign = '+'; break;
-    case 4: sign = '-'; break;
-    case 5: sign = '-'; break;
-    case 6: sign = '-'; break;
-    case 7: sign = '-'; break;
-    default: sign = '*'; break;
-  }
-  return sign;
+  const index = Math.floor(Math.random() * 10);
+  const sign = ['+', '+', '+', '+', '-', '-', '-', '-', '*', '*', '*'];
+  return sign[index];
 };
 
 /**
@@ -44,13 +31,22 @@ const getResOfCalc = (param) => {
 };
 
 /**
+ * function for generations dataset;
+ * @returns {{dataSet: Array, questionsSet: string[], theme: string}}
+ */
+const generationDataset = () => {
+  const NUM_OF_DATASETS = 3;
+  const numDataset = genData([randNum(100), randNum(100), randOp], NUM_OF_DATASETS);
+  return {
+    dataSet: numDataset,
+    questionsSet: numDataset.map((param) => `${param[0]} ${param[2]} ${param[1]}`),
+    theme: 'What is the result of the expression? ',
+  };
+};
+
+/**
  * game
  */
 export default () => {
-  const dataSet = genData([randNum(100), randNum(100), randOp], NUM_OF_ROUNDS);
-
-  run(theme,
-    dataSet,
-    dataSet.map((param) => `${param[0]} ${param[2]} ${param[1]}`),
-    getResOfCalc);
+  run(generationDataset(), getResOfCalc);
 };
