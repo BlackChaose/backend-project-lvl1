@@ -56,7 +56,7 @@ const genQuestionProgression = (param) => {
  * function for generations dataset;
  * @returns {{dataSet: Array, questionsSet: string[], theme: string}}
  */
-const generationDataset = () => {
+const generateDataset = () => {
   const NUM_OF_DATASETS = 3;
   const numDataset = genData([randNum(0, 100), randNum(0, 100), randNum(0, 10)], NUM_OF_DATASETS);
   return {
@@ -70,5 +70,5 @@ const generationDataset = () => {
  * game
  */
 export default () => {
-  run(generationDataset(), getProgrIndexX);
+  run(generateDataset(), getProgrIndexX);
 };
