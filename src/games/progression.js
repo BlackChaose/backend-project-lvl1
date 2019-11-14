@@ -57,9 +57,9 @@ const generateQuestionProgression = (param) => {
  * @returns {{dataSet: Array, questionsSet: string[], theme: string}}
  */
 const generateDataset = () => {
-  const NUM_OF_DATASETS = 3;
+  const NUMBER_OF_ROWS_IN_THE_DATASET = 3;
   const numDataset = createDataset([randNum(0, 100), randNum(0, 100), randNum(0, 10)],
-    NUM_OF_DATASETS);
+    NUMBER_OF_ROWS_IN_THE_DATASET);
   return {
     dataSet: numDataset,
     questionsSet: numDataset.map((el) => generateQuestionProgression(el)),

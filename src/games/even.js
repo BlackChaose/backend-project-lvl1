@@ -13,8 +13,9 @@ const isEven = (n) => n % 2 === 0;
  * @returns {{dataSet: Array, questionsSet: string[], theme: string}}
  */
 const generateDataset = () => {
-  const NUM_OF_DATASETS = 3;
-  const numDataset = createDataset([randNum(0, 100)], NUM_OF_DATASETS);
+  const NUMBER_OF_ROWS_IN_THE_DATASET = 3;
+  const numDataset = createDataset([randNum(0, 100)],
+    NUMBER_OF_ROWS_IN_THE_DATASET);
   return {
     dataSet: numDataset,
     questionsSet: numDataset,
