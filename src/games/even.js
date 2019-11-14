@@ -1,5 +1,5 @@
 import run from '../engine';
-import { genData, randNum } from '../lib';
+import { createDataset, randNum } from '../lib';
 
 /**
  * check n for even
@@ -14,11 +14,10 @@ const isEven = (n) => n % 2 === 0;
  */
 const generateDataset = () => {
   const NUM_OF_DATASETS = 3;
-  const numDataset = genData([randNum(0, 100)], NUM_OF_DATASETS);
+  const numDataset = createDataset([randNum(0, 100)], NUM_OF_DATASETS);
   return {
     dataSet: numDataset,
     questionsSet: numDataset,
-    theme: 'Answer "yes" if the number is even, otherwise answer "no".',
   };
 };
 
@@ -26,5 +25,5 @@ const generateDataset = () => {
  * game
  */
 export default () => {
-  run(generateDataset(), (x) => ((isEven(x) ? 'yes' : 'no')));
+  run('Answer "yes" if the number is even, otherwise answer "no".', generateDataset(), (x) => ((isEven(x) ? 'yes' : 'no')));
 };

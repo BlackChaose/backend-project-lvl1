@@ -1,12 +1,12 @@
 import run from '../engine';
-import { genData, randNum } from '../lib';
+import { createDataset, randNum } from '../lib';
 
 /**
  * arithmetic progression generation
  * @param param {Array} [a1, d]
  * @returns {Array}
  */
-const genProgr = (param) => {
+const generateProgression = (param) => {
   const a1 = param[0];
   const d = param[1];
   const prog = [];
@@ -23,11 +23,11 @@ const genProgr = (param) => {
  * @param param {Array} [a1, d, index]
  * @returns {string}
  */
-const getProgrIndexX = (param) => {
+const getProgressionIndexX = (param) => {
   const a1 = param[0];
   const d = param[1];
   const indexX = param[2];
-  const prog = genProgr([a1, d, indexX]);
+  const prog = generateProgression([a1, d, indexX]);
   return prog[indexX].toString();
 };
 
@@ -36,11 +36,11 @@ const getProgrIndexX = (param) => {
  * @param param {Array} [a1, d, index]
  * @returns {string}
  */
-const genQuestionProgression = (param) => {
+const generateQuestionProgression = (param) => {
   const a1 = param[0];
   const d = param[1];
   const indexX = param[2];
-  return genProgr([a1, d]).reduce((acc, el, i) => {
+  return generateProgression([a1, d]).reduce((acc, el, i) => {
     let res = acc;
     if (i === indexX) {
       res = `${res} ..`;
@@ -58,11 +58,11 @@ const genQuestionProgression = (param) => {
  */
 const generateDataset = () => {
   const NUM_OF_DATASETS = 3;
-  const numDataset = genData([randNum(0, 100), randNum(0, 100), randNum(0, 10)], NUM_OF_DATASETS);
+  const numDataset = createDataset([randNum(0, 100), randNum(0, 100), randNum(0, 10)],
+    NUM_OF_DATASETS);
   return {
     dataSet: numDataset,
-    questionsSet: numDataset.map((el) => genQuestionProgression(el)),
-    theme: 'What number is missing in the progression?',
+    questionsSet: numDataset.map((el) => generateQuestionProgression(el)),
   };
 };
 
@@ -70,5 +70,5 @@ const generateDataset = () => {
  * game
  */
 export default () => {
-  run(generateDataset(), getProgrIndexX);
+  run('What number is missing in the progression?', generateDataset(), getProgressionIndexX);
 };

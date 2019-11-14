@@ -1,18 +1,18 @@
 import run from '../engine';
-import { genData, randNum } from '../lib';
+import { createDataset, randNum } from '../lib';
 
 /**
  * check is n prime?
  * @param n {Number}
- * @returns {string}
+ * @returns {boolean}
  */
 const isPrime = (n) => {
   for (let i = 2; i <= Math.sqrt(n); i += 1) {
     if (n % i === 0) {
-      return 'no';
+      return false;
     }
   }
-  return 'yes';
+  return true;
 };
 
 /**
@@ -21,11 +21,10 @@ const isPrime = (n) => {
  */
 const generateDataset = () => {
   const NUM_OF_DATASETS = 3;
-  const numDataset = genData([randNum(0, 100)], NUM_OF_DATASETS);
+  const numDataset = createDataset([randNum(0, 100)], NUM_OF_DATASETS);
   return {
     dataSet: numDataset,
     questionsSet: numDataset.map((el) => `${el[0]}`),
-    theme: 'Answer "yes" if given number is prime. Otherwise answer "no".',
   };
 };
 
@@ -33,5 +32,5 @@ const generateDataset = () => {
  * game
  */
 export default () => {
-  run(generateDataset(), isPrime);
+  run('Answer "yes" if given number is prime. Otherwise answer "no".', generateDataset(), (x) => ((isPrime(x) ? 'yes' : 'no')));
 };
