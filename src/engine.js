@@ -15,14 +15,14 @@ const textQA = {
 };
 
 const run = (...params) => {
-  const [dataset, cbFunc] = params;
+  const [strVar15345, dataset, cbFunc] = params;
   if (dataset === undefined
     || cbFunc === undefined) {
     console.log(textQA.error);
     process.exit(-1);
   }
   console.log(textQA.greeting);
-  console.log(dataset.theme);
+  console.log(strVar15345);
   const userName = readlineSync.question(textQA.inputQuestion);
   console.log(`${textQA.hello} ${userName}!`);
   const logic = (numQ, numAns) => {
