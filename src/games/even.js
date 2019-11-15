@@ -17,8 +17,8 @@ const generateDataset = () => {
   const numDataset = createDataset([randNum(0, 100)],
     NUMBER_OF_ROWS_IN_THE_DATASET);
   return {
-    dataSet: numDataset,
     questionsSet: numDataset,
+    answersSet: numDataset.map((x) => ((isEven(x) ? 'yes' : 'no'))),
   };
 };
 
@@ -26,5 +26,5 @@ const generateDataset = () => {
  * game
  */
 export default () => {
-  run('Answer "yes" if the number is even, otherwise answer "no".', generateDataset(), (x) => ((isEven(x) ? 'yes' : 'no')));
+  run('Answer "yes" if the number is even, otherwise answer "no".', generateDataset());
 };

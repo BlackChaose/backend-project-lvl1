@@ -39,8 +39,8 @@ const generateDataset = () => {
   const numDataset = createDataset([randNum(0, 100), randNum(0, 100), randomOperation],
     NUMBER_OF_ROWS_IN_THE_DATASET);
   return {
-    dataSet: numDataset,
     questionsSet: numDataset.map((param) => `${param[0]} ${param[2]} ${param[1]}`),
+    answersSet: numDataset.map(getResultOfCalculation),
   };
 };
 
@@ -48,5 +48,5 @@ const generateDataset = () => {
  * game
  */
 export default () => {
-  run('What is the result of the expression? ', generateDataset(), getResultOfCalculation);
+  run('What is the result of the expression? ', generateDataset());
 };

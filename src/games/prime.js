@@ -24,8 +24,8 @@ const generateDataset = () => {
   const numDataset = createDataset([randNum(0, 100)],
     NUMBER_OF_ROWS_IN_THE_DATASET);
   return {
-    dataSet: numDataset,
     questionsSet: numDataset.map((el) => `${el[0]}`),
+    answersSet: numDataset.map((x) => (isPrime(x) ? 'yes' : 'no')),
   };
 };
 
@@ -33,5 +33,5 @@ const generateDataset = () => {
  * game
  */
 export default () => {
-  run('Answer "yes" if given number is prime. Otherwise answer "no".', generateDataset(), (x) => ((isPrime(x) ? 'yes' : 'no')));
+  run('Answer "yes" if given number is prime. Otherwise answer "no".', generateDataset());
 };

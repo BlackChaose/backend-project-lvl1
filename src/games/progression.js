@@ -61,8 +61,8 @@ const generateDataset = () => {
   const numDataset = createDataset([randNum(0, 100), randNum(0, 100), randNum(0, 10)],
     NUMBER_OF_ROWS_IN_THE_DATASET);
   return {
-    dataSet: numDataset,
     questionsSet: numDataset.map((el) => generateQuestionProgression(el)),
+    answersSet: numDataset.map(getProgressionIndexX),
   };
 };
 
@@ -70,5 +70,5 @@ const generateDataset = () => {
  * game
  */
 export default () => {
-  run('What number is missing in the progression?', generateDataset(), getProgressionIndexX);
+  run('What number is missing in the progression?', generateDataset());
 };

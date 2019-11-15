@@ -28,8 +28,8 @@ const generateDataset = () => {
   const numDataset = createDataset([randNum(0, 100), randNum(0, 100)],
     NUMBER_OF_ROWS_IN_THE_DATASET);
   return {
-    dataSet: numDataset,
     questionsSet: numDataset.map((el) => `${el[0]} ${el[1]}`),
+    answersSet: numDataset.map((x) => findGCD(x).toString()),
   };
 };
 
@@ -37,5 +37,5 @@ const generateDataset = () => {
  * game
  */
 export default () => {
-  run('Find the greatest common divisor of given numbers.', generateDataset(), ((x) => findGCD(x).toString()));
+  run('Find the greatest common divisor of given numbers.', generateDataset());
 };

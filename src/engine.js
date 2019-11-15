@@ -2,9 +2,8 @@
 import readlineSync from 'readline-sync';
 
 const run = (...params) => {
-  const [theme, dataset, cbFunc] = params;
-  if (dataset === undefined
-    || cbFunc === undefined) {
+  const [theme, dataset] = params;
+  if (dataset === undefined) {
     console.log('Error!');
     process.exit(-1);
   }
@@ -32,7 +31,7 @@ const run = (...params) => {
     }
     console.log(`Question: ${dataset.questionsSet[i]}`);
     const ans = readlineSync.question('Your answer: ');
-    if (!logic(cbFunc(dataset.dataSet[i]), ans)) {
+    if (!logic(dataset.answersSet[i], ans)) {
       process.exit(-1);
     }
   }
