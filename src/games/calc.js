@@ -7,8 +7,8 @@ import { genData, randNum } from '../lib';
  * @returns {string}  '+', '-' or '*'
  */
 const randOp = () => {
-  const index = randNum(0, 10)();
-  const sign = ['+', '+', '+', '+', '-', '-', '-', '-', '*', '*', '*'];
+  const index = randNum(1, 3)();
+  const sign = ['+', '-', '*'];
   return sign[index];
 };
 
