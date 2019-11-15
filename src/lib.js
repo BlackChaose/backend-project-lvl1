@@ -24,7 +24,7 @@ const randNum = (a, b) => () => {
  * @param nums - required number of data sets
  * @returns {Array}
  */
-const genData = (sets, nums) => {
+const createDataset = (sets, nums) => {
   const dataSet = [];
   for (let i = 0; i < nums; i += 1) {
     dataSet[i] = sets.map((func) => func());
@@ -32,4 +32,4 @@ const genData = (sets, nums) => {
   return dataSet;
 };
 
-export { genData, randNum };
+export { createDataset, randNum };

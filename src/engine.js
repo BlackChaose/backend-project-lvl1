@@ -2,14 +2,14 @@
 import readlineSync from 'readline-sync';
 
 const run = (...params) => {
-  const [dataset, cbFunc] = params;
+  const [theme, dataset, cbFunc] = params;
   if (dataset === undefined
     || cbFunc === undefined) {
     console.log('Error!');
     process.exit(-1);
   }
   console.log('Welcome to the Brain Games!');
-  console.log(dataset.theme);
+  console.log(theme);
   const userName = readlineSync.question('May I have your name? ');
   console.log(`Hello ${userName}!`);
   const logic = (numQ, numAns) => {

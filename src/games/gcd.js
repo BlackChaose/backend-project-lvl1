@@ -1,12 +1,12 @@
 import run from '../engine';
-import { genData, randNum } from '../lib';
+import { createDataset, randNum } from '../lib';
 
 /**
  * Finding the Greatest Common Divisor
  * @param pair {Array} [a1, b1]
  * @returns {string} value of Greatest Common Divisor in string format
  */
-const findNOD = (pair) => {
+const findGCD = (pair) => {
   let a1 = pair.pop();
   let b1 = pair.pop();
   while (a1 !== b1) {
@@ -23,13 +23,13 @@ const findNOD = (pair) => {
  * function for generations dataset;
  * @returns {{dataSet: Array, questionsSet: string[], theme: string}}
  */
-const generationDataset = () => {
-  const NUM_OF_DATASETS = 3;
-  const numDataset = genData([randNum(0, 100), randNum(0, 100)], NUM_OF_DATASETS);
+const generateDataset = () => {
+  const NUMBER_OF_ROWS_IN_THE_DATASET = 3;
+  const numDataset = createDataset([randNum(0, 100), randNum(0, 100)],
+    NUMBER_OF_ROWS_IN_THE_DATASET);
   return {
     dataSet: numDataset,
     questionsSet: numDataset.map((el) => `${el[0]} ${el[1]}`),
-    theme: 'Find the greatest common divisor of given numbers.',
   };
 };
 
@@ -37,5 +37,5 @@ const generationDataset = () => {
  * game
  */
 export default () => {
-  run(generationDataset(), ((x) => findNOD(x).toString()));
+  run('Find the greatest common divisor of given numbers.', generateDataset(), ((x) => findGCD(x).toString()));
 };

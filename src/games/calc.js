@@ -1,14 +1,14 @@
 import run from '../engine';
-import { genData, randNum } from '../lib';
+import { createDataset, randNum } from '../lib';
 
 /**
  * random generate 'sign'
  * @nothing  operation sign generation function
  * @returns {string}  '+', '-' or '*'
  */
-const randOp = () => {
-  const index = randNum(1, 3)();
+const randomOperation = () => {
   const sign = ['+', '-', '*'];
+  const index = randNum(0, sign.length)();
   return sign[index];
 };
 
@@ -17,7 +17,7 @@ const randOp = () => {
  * @param param  array [a, b, 'sign']
  * @returns {string}
  */
-const getResOfCalc = (param) => {
+const getResultOfCalculation = (param) => {
   const sign = param[2];
   const a = param[0];
   const b = param[1];
@@ -34,13 +34,13 @@ const getResOfCalc = (param) => {
  * function for generations dataset;
  * @returns {{dataSet: Array, questionsSet: string[], theme: string}}
  */
-const generationDataset = () => {
-  const NUM_OF_DATASETS = 3;
-  const numDataset = genData([randNum(0, 100), randNum(0, 100), randOp], NUM_OF_DATASETS);
+const generateDataset = () => {
+  const NUMBER_OF_ROWS_IN_THE_DATASET = 3;
+  const numDataset = createDataset([randNum(0, 100), randNum(0, 100), randomOperation],
+    NUMBER_OF_ROWS_IN_THE_DATASET);
   return {
     dataSet: numDataset,
     questionsSet: numDataset.map((param) => `${param[0]} ${param[2]} ${param[1]}`),
-    theme: 'What is the result of the expression? ',
   };
 };
 
@@ -48,5 +48,5 @@ const generationDataset = () => {
  * game
  */
 export default () => {
-  run(generationDataset(), getResOfCalc);
+  run('What is the result of the expression? ', generateDataset(), getResultOfCalculation);
 };
