@@ -2,7 +2,14 @@ import run from '../engine';
 import { createDataset, randNum } from '../lib';
 
 /**
+ * константа, правила игры
+ * @type {string}
+ */
+const RULES_OF_THE_GAME = 'What number is missing in the progression?';
+
+/**
  * arithmetic progression generation
+ * 'an = a1 + d*(n-1)', [link](https://educon.by/index.php/materials/math/progressii),
  * @param param {Array} [a1, d]
  * @returns {Array}
  */
@@ -33,7 +40,7 @@ const getProgressionIndexX = (param) => {
 
 /**
  * generate text of question by arithmetic progression
- * @param param {Array} [a1, d, index]
+ * @param param {Array} [a1, d, index], a1 - first member, d - difference, index - index of '..'
  * @returns {string}
  */
 const generateQuestionProgression = (param) => {
@@ -57,12 +64,23 @@ const generateQuestionProgression = (param) => {
  * @returns {{dataSet: Array, questionsSet: string[], theme: string}}
  */
 const generateDataset = () => {
+  /**
+   * количество строк в наборе данных,
+   * записано в стиле snake-case,
+   * венгерская нотация отсутствует
+   * имя не сокращено
+   * @type {number}
+   */
   const NUMBER_OF_ROWS_IN_THE_DATASET = 3;
-  const numDataset = createDataset([randNum(0, 100), randNum(0, 100), randNum(0, 10)],
+  /**
+   * data set - (англ.) - набор данных, имя существительное
+   * @type {Array}
+   */
+  const dataSet = createDataset([randNum(0, 100), randNum(0, 100), randNum(0, 10)],
     NUMBER_OF_ROWS_IN_THE_DATASET);
   return {
-    questionsSet: numDataset.map((el) => generateQuestionProgression(el)),
-    answersSet: numDataset.map(getProgressionIndexX),
+    questionsSet: dataSet.map((el) => generateQuestionProgression(el)),
+    answersSet: dataSet.map(getProgressionIndexX),
   };
 };
 
@@ -70,5 +88,5 @@ const generateDataset = () => {
  * game
  */
 export default () => {
-  run('What number is missing in the progression?', generateDataset());
+  run(RULES_OF_THE_GAME, generateDataset());
 };

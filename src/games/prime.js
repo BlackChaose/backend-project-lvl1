@@ -2,11 +2,17 @@ import run from '../engine';
 import { createDataset, randNum } from '../lib';
 
 /**
+ * константа, правила игры
+ * @type {string}
+ */
+const RULES_OF_THE_GAME = 'Answer "yes" if given number is prime. Otherwise answer "no".';
+/**
  * check is n prime?
  * @param n {Number}
  * @returns {boolean}
  */
 const isPrime = (n) => {
+  if (n <= 1) { return false; }
   for (let i = 2; i <= Math.sqrt(n); i += 1) {
     if (n % i === 0) {
       return false;
@@ -20,12 +26,23 @@ const isPrime = (n) => {
  * @returns {{dataSet: Array, questionsSet: string[], theme: string}}
  */
 const generateDataset = () => {
+  /**
+   * количество строк в наборе данных,
+   * записано в стиле snake-case,
+   * венгерская нотация отсутствует
+   * имя не сокращено
+   * @type {number}
+   */
   const NUMBER_OF_ROWS_IN_THE_DATASET = 3;
-  const numDataset = createDataset([randNum(0, 100)],
+  /**
+   * data set - (англ.) - набор данных, имя существительное
+   * @type {Array}
+   */
+  const dataSet = createDataset([randNum(0, 100)],
     NUMBER_OF_ROWS_IN_THE_DATASET);
   return {
-    questionsSet: numDataset.map((el) => `${el[0]}`),
-    answersSet: numDataset.map((x) => (isPrime(x) ? 'yes' : 'no')),
+    questionsSet: dataSet.map((el) => `${el[0]}`),
+    answersSet: dataSet.map((x) => (isPrime(x) ? 'yes' : 'no')),
   };
 };
 
@@ -33,5 +50,5 @@ const generateDataset = () => {
  * game
  */
 export default () => {
-  run('Answer "yes" if given number is prime. Otherwise answer "no".', generateDataset());
+  run(RULES_OF_THE_GAME, generateDataset());
 };

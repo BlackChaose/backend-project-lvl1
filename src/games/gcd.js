@@ -2,21 +2,27 @@ import run from '../engine';
 import { createDataset, randNum } from '../lib';
 
 /**
+ * константа, правила игры
+ * @type {string}
+ */
+const RULES_OF_THE_GAME = 'Find the greatest common divisor of given numbers.';
+/**
  * Finding the Greatest Common Divisor
- * @param pair {Array} [a1, b1]
+ * @param  {number} paramA
+ * @param  {number} paramB
  * @returns {string} value of Greatest Common Divisor in string format
  */
-const findGCD = (pair) => {
-  let a1 = pair.pop();
-  let b1 = pair.pop();
-  while (a1 !== b1) {
-    if (a1 > b1) {
-      a1 -= b1;
+const findGCD = (paramA, paramB) => {
+  let a = paramA;
+  let b = paramB;
+  while (a !== b) {
+    if (a > b) {
+      a -= b;
     } else {
-      b1 -= a1;
+      b -= a;
     }
   }
-  return a1;
+  return a;
 };
 
 /**
@@ -24,12 +30,23 @@ const findGCD = (pair) => {
  * @returns {{dataSet: Array, questionsSet: string[], theme: string}}
  */
 const generateDataset = () => {
+  /**
+   * количество строк в наборе данных,
+   * записано в стиле snake-case,
+   * венгерская нотация отсутствует
+   * имя не сокращено
+   * @type {number}
+   */
   const NUMBER_OF_ROWS_IN_THE_DATASET = 3;
-  const numDataset = createDataset([randNum(0, 100), randNum(0, 100)],
+  /**
+   * data set - (англ.) - набор данных, имя существительное
+   * @type {Array}
+   */
+  const dataSet = createDataset([randNum(0, 100), randNum(0, 100)],
     NUMBER_OF_ROWS_IN_THE_DATASET);
   return {
-    questionsSet: numDataset.map((el) => `${el[0]} ${el[1]}`),
-    answersSet: numDataset.map((x) => findGCD(x).toString()),
+    questionsSet: dataSet.map((el) => `${el[0]} ${el[1]}`),
+    answersSet: dataSet.map(([x1, x2]) => findGCD(x1, x2).toString()),
   };
 };
 
@@ -37,5 +54,5 @@ const generateDataset = () => {
  * game
  */
 export default () => {
-  run('Find the greatest common divisor of given numbers.', generateDataset());
+  run(RULES_OF_THE_GAME, generateDataset());
 };

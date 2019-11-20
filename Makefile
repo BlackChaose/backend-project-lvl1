@@ -9,4 +9,4 @@ lint:
 	npx eslint .
 tst:
 	make publish
-	sudo npm link
+	npm link

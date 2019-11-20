@@ -1,14 +1,14 @@
 #!/usr/bin/env node
 import readlineSync from 'readline-sync';
 
-const run = (...params) => {
-  const [theme, dataset] = params;
+const run = (rules, dataset) => {
   if (dataset === undefined) {
     console.log('Error!');
     process.exit(-1);
   }
   console.log('Welcome to the Brain Games!');
-  console.log(theme);
+  console.log(rules);
+  const NUMBER_OF_ROUNDS = 3;
   const userName = readlineSync.question('May I have your name? ');
   console.log(`Hello ${userName}!`);
   const logic = (numQ, numAns) => {
@@ -24,7 +24,7 @@ const run = (...params) => {
     return result;
   };
 
-  for (let i = 0; i <= 3; i += 1) {
+  for (let i = 0; i <= NUMBER_OF_ROUNDS; i += 1) {
     if (i === 3) {
       console.log(`Congratulations ${userName}!`);
       process.exit(-1);

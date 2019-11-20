@@ -2,6 +2,11 @@ import run from '../engine';
 import { createDataset, randNum } from '../lib';
 
 /**
+ * константа, правила игры
+ * @type {string}
+ */
+const RULES_OF_THE_GAME = 'What is the result of the expression? ';
+/**
  * random generate 'sign'
  * @nothing  operation sign generation function
  * @returns {string}  '+', '-' or '*'
@@ -35,12 +40,23 @@ const getResultOfCalculation = (param) => {
  * @returns {{dataSet: Array, questionsSet: string[], theme: string}}
  */
 const generateDataset = () => {
+  /**
+   * количество строк в наборе данных,
+   * записано в стиле snake-case,
+   * венгерская нотация отсутствует
+   * имя не сокращено
+   * @type {number}
+   */
   const NUMBER_OF_ROWS_IN_THE_DATASET = 3;
-  const numDataset = createDataset([randNum(0, 100), randNum(0, 100), randomOperation],
+  /**
+   * data set - (англ.) - набор данных, мая существительное
+   * @type {Array}
+   */
+  const dataSet = createDataset([randNum(0, 100), randNum(0, 100), randomOperation],
     NUMBER_OF_ROWS_IN_THE_DATASET);
   return {
-    questionsSet: numDataset.map((param) => `${param[0]} ${param[2]} ${param[1]}`),
-    answersSet: numDataset.map(getResultOfCalculation),
+    questionsSet: dataSet.map((param) => `${param[0]} ${param[2]} ${param[1]}`),
+    answersSet: dataSet.map(getResultOfCalculation),
   };
 };
 
@@ -48,5 +64,5 @@ const generateDataset = () => {
  * game
  */
 export default () => {
-  run('What is the result of the expression? ', generateDataset());
+  run(RULES_OF_THE_GAME, generateDataset());
 };

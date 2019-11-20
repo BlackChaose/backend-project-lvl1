@@ -2,6 +2,14 @@
   "name": "braian-games",
   "version": "1.0.0",
   "description": "",
+  "keywords": [
+    "brain-games",
+    "brain-even",
+    "brain-gcd",
+    "brain-prime",
+    "brain-progression",
+    "brain-calc"
+  ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "NODE_ENV=production babel src --out-dir dist --source-maps inline",
