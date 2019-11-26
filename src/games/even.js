@@ -25,7 +25,7 @@ const generateDataset = () => {
    * имя не сокращено
    * @type {number}
    */
-  const NUMBER_OF_ROWS_IN_THE_DATASET = 3;
+  const NUMBER_OF_ROWS_IN_THE_DATASET = 3; //fixme: <-- импортируй эту константу из движка!!! во всех играх
   /**
    * data set - (англ.) - набор данных, имя существительное
    * @type {Array}
@@ -44,3 +44,4 @@ const generateDataset = () => {
 export default () => {
   run(RULES_OF_THE_GAME, generateDataset());
 };
+ы
