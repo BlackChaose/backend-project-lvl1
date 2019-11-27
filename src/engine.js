@@ -13,16 +13,13 @@ const run = (rules, dataset) => {
   const userName = readlineSync.question('May I have your name? ');
   console.log(`Hello ${userName}!`);
   const logic = (question, answer) => {
-    let result = false;
     if (question === answer) {
       console.log('Correct!');
-      result = true;
-    } else {
-      console.log(`'${answer}' is wrong answer ;(. Correct answer was '${question}'`);
-      console.log(`Let's try again, ${userName}!`);
-      result = false;
+      return true;
     }
-    return result;
+    console.log(`'${answer}' is wrong answer ;(. Correct answer was '${question}'`);
+    console.log(`Let's try again, ${userName}!`);
+    return false;
   };
 
   for (let i = 0; i <= ROUNDS_COUNT; i += 1) {
