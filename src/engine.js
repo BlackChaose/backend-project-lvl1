@@ -1,6 +1,8 @@
 #!/usr/bin/env node
 import readlineSync from 'readline-sync';
 
+const ROUNDS_COUNT = 3;
+
 const run = (rules, dataset) => {
   if (dataset === undefined) {
     console.log('Error!');
@@ -8,24 +10,23 @@ const run = (rules, dataset) => {
   }
   console.log('Welcome to the Brain Games!');
   console.log(rules);
-  const NUMBER_OF_ROUNDS = 3;
   const userName = readlineSync.question('May I have your name? ');
   console.log(`Hello ${userName}!`);
-  const logic = (numQ, numAns) => {
+  const logic = (question, answer) => {
     let result = false;
-    if (numQ === numAns) {
+    if (question === answer) {
       console.log('Correct!');
       result = true;
     } else {
-      console.log(`'${numAns}' is wrong answer ;(. Correct answer was '${numQ}'`);
+      console.log(`'${answer}' is wrong answer ;(. Correct answer was '${question}'`);
       console.log(`Let's try again, ${userName}!`);
       result = false;
     }
     return result;
   };
 
-  for (let i = 0; i <= NUMBER_OF_ROUNDS; i += 1) {
-    if (i === 3) {
+  for (let i = 0; i <= ROUNDS_COUNT; i += 1) {
+    if (i === ROUNDS_COUNT) {
       console.log(`Congratulations ${userName}!`);
       process.exit(-1);
     }
@@ -36,4 +37,4 @@ const run = (rules, dataset) => {
     }
   }
 };
-export default run;
+export { run, ROUNDS_COUNT };

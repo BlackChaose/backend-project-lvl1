@@ -1,11 +1,11 @@
-import run from '../engine';
+import { run, ROUNDS_COUNT } from '../engine';
 import { createDataset, randNum } from '../lib';
 
 /**
  * константа, правила игры
  * @type {string}
  */
-const RULES_OF_THE_GAME = 'Find the greatest common divisor of given numbers.';
+const RULE_OF_THE_GAME = 'Find the greatest common divisor of given numbers.';
 /**
  * Finding the Greatest Common Divisor
  * @param  {number} paramA
@@ -31,22 +31,14 @@ const findGCD = (paramA, paramB) => {
  */
 const generateDataset = () => {
   /**
-   * количество строк в наборе данных,
-   * записано в стиле snake-case,
-   * венгерская нотация отсутствует
-   * имя не сокращено
-   * @type {number}
-   */
-  const NUMBER_OF_ROWS_IN_THE_DATASET = 3;
-  /**
    * data set - (англ.) - набор данных, имя существительное
    * @type {Array}
    */
-  const dataSet = createDataset([randNum(0, 100), randNum(0, 100)],
-    NUMBER_OF_ROWS_IN_THE_DATASET);
+  const records = createDataset([randNum(0, 100), randNum(0, 100)],
+    ROUNDS_COUNT);
   return {
-    questionsSet: dataSet.map((el) => `${el[0]} ${el[1]}`),
-    answersSet: dataSet.map(([x1, x2]) => findGCD(x1, x2).toString()),
+    questionsSet: records.map((el) => `${el[0]} ${el[1]}`),
+    answersSet: records.map(([x1, x2]) => findGCD(x1, x2).toString()),
   };
 };
 
@@ -54,5 +46,5 @@ const generateDataset = () => {
  * game
  */
 export default () => {
-  run(RULES_OF_THE_GAME, generateDataset());
+  run(RULE_OF_THE_GAME, generateDataset());
 };

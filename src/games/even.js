@@ -1,11 +1,11 @@
-import run from '../engine';
+import { run, ROUNDS_COUNT } from '../engine';
 import { createDataset, randNum } from '../lib';
 
 /**
  * константа, правила игры
  * @type {string}
  */
-const RULES_OF_THE_GAME = 'Answer "yes" if the number is even, otherwise answer "no".';
+const RULE_OF_THE_GAME = 'Answer "yes" if the number is even, otherwise answer "no".';
 /**
  * check n for even
  * @param n Number
@@ -19,22 +19,14 @@ const isEven = (n) => n % 2 === 0;
  */
 const generateDataset = () => {
   /**
-   * количество строк в наборе данных,
-   * записано в стиле snake-case,
-   * венгерская нотация отсутствует
-   * имя не сокращено
-   * @type {number}
-   */
-  const NUMBER_OF_ROWS_IN_THE_DATASET = 3; //fixme: <-- импортируй эту константу из движка!!! во всех играх
-  /**
    * data set - (англ.) - набор данных, имя существительное
    * @type {Array}
    */
-  const dataSet = createDataset([randNum(0, 100)],
-    NUMBER_OF_ROWS_IN_THE_DATASET);
+  const records = createDataset([randNum(0, 100)],
+    ROUNDS_COUNT);
   return {
-    questionsSet: dataSet,
-    answersSet: dataSet.map((x) => ((isEven(x) ? 'yes' : 'no'))),
+    questionsSet: records,
+    answersSet: records.map((x) => ((isEven(x) ? 'yes' : 'no'))),
   };
 };
 
@@ -42,6 +34,5 @@ const generateDataset = () => {
  * game
  */
 export default () => {
-  run(RULES_OF_THE_GAME, generateDataset());
+  run(RULE_OF_THE_GAME, generateDataset());
 };
-ы

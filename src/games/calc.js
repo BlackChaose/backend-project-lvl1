@@ -1,11 +1,11 @@
-import run from '../engine';
+import { run, ROUNDS_COUNT } from '../engine';
 import { createDataset, randNum } from '../lib';
 
 /**
  * константа, правила игры
  * @type {string}
  */
-const RULES_OF_THE_GAME = 'What is the result of the expression? ';
+const RULE_OF_THE_GAME = 'What is the result of the expression? ';
 /**
  * random generate 'sign'
  * @nothing  operation sign generation function
@@ -41,22 +41,14 @@ const getResultOfCalculation = (param) => {
  */
 const generateDataset = () => {
   /**
-   * количество строк в наборе данных,
-   * записано в стиле snake-case,
-   * венгерская нотация отсутствует
-   * имя не сокращено
-   * @type {number}
-   */
-  const NUMBER_OF_ROWS_IN_THE_DATASET = 3;
-  /**
-   * data set - (англ.) - набор данных, мая существительное
+   * data set - (англ.) - набор данных, имя существительное
    * @type {Array}
    */
-  const dataSet = createDataset([randNum(0, 100), randNum(0, 100), randomOperation],
-    NUMBER_OF_ROWS_IN_THE_DATASET);
+  const records = createDataset([randNum(0, 100), randNum(0, 100), randomOperation],
+    ROUNDS_COUNT);
   return {
-    questionsSet: dataSet.map((param) => `${param[0]} ${param[2]} ${param[1]}`),
-    answersSet: dataSet.map(getResultOfCalculation),
+    questionsSet: records.map((param) => `${param[0]} ${param[2]} ${param[1]}`),
+    answersSet: records.map(getResultOfCalculation),
   };
 };
 
@@ -64,5 +56,5 @@ const generateDataset = () => {
  * game
  */
 export default () => {
-  run(RULES_OF_THE_GAME, generateDataset());
+  run(RULE_OF_THE_GAME, generateDataset());
 };

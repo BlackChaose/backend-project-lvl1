@@ -1,11 +1,11 @@
-import run from '../engine';
+import { run, ROUNDS_COUNT } from '../engine';
 import { createDataset, randNum } from '../lib';
 
 /**
  * константа, правила игры
  * @type {string}
  */
-const RULES_OF_THE_GAME = 'What number is missing in the progression?';
+const RULE_OF_THE_GAME = 'What number is missing in the progression?';
 
 /**
  * arithmetic progression generation
@@ -65,22 +65,14 @@ const generateQuestionProgression = (param) => {
  */
 const generateDataset = () => {
   /**
-   * количество строк в наборе данных,
-   * записано в стиле snake-case,
-   * венгерская нотация отсутствует
-   * имя не сокращено
-   * @type {number}
-   */
-  const NUMBER_OF_ROWS_IN_THE_DATASET = 3;
-  /**
    * data set - (англ.) - набор данных, имя существительное
    * @type {Array}
    */
-  const dataSet = createDataset([randNum(0, 100), randNum(0, 100), randNum(0, 10)],
-    NUMBER_OF_ROWS_IN_THE_DATASET);
+  const records = createDataset([randNum(0, 100), randNum(0, 100), randNum(0, 10)],
+    ROUNDS_COUNT);
   return {
-    questionsSet: dataSet.map((el) => generateQuestionProgression(el)),
-    answersSet: dataSet.map(getProgressionIndexX),
+    questionsSet: records.map((el) => generateQuestionProgression(el)),
+    answersSet: records.map(getProgressionIndexX),
   };
 };
 
@@ -88,5 +80,5 @@ const generateDataset = () => {
  * game
  */
 export default () => {
-  run(RULES_OF_THE_GAME, generateDataset());
+  run(RULE_OF_THE_GAME, generateDataset());
 };
